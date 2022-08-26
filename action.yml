@@ -1,0 +1,26 @@
+name: 'go-kart'
+description: 'Run go-kart'
+author: 'Conventional Actions'
+inputs:
+  version:
+    required: false
+    description: 'version of kart to use'
+    default: latest
+  output_path:
+    required: false
+    description: 'output file path'
+    default: gokart.sarif
+  package:
+    required: false
+    description: 'package to scan'
+    default: ./...
+outputs:
+  output_path:
+    description: 'output file path'
+runs:
+  using: 'node16'
+  pre: 'dist/setup/index.js'
+  main: 'dist/main/index.js'
+branding:
+  icon: shopping-cart
+  color: purple

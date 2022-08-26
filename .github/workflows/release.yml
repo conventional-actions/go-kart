@@ -1,0 +1,28 @@
+name: 'release'
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - id: version
+        name: Determine next version
+        uses: conventional-actions/next-version@v1
+      - name: Create release
+        uses: conventional-actions/create-release@v1
+        with:
+          tag_name: ${{steps.version.outputs.version}}
+      - name: Create major release
+        uses: conventional-actions/create-release@v1
+        with:
+          tag_name: ${{steps.version.outputs.version-major}}
+
+permissions:
+  contents: write
