@@ -7301,14 +7301,7 @@ async function run() {
         const outputPath = core.getInput('output_path') || 'gokart.sarif';
         const packages = (0, utils_1.parseInputFiles)(core.getInput('package') || './...');
         for (const pkg of packages) {
-            await exec.exec('gokart', [
-                'scan',
-                '-x',
-                '-s',
-                '-o',
-                outputPath,
-                pkg
-            ]);
+            await exec.exec('gokart', ['scan', '-x', '-s', '-o', outputPath, pkg]);
         }
     }
     catch (error) {
