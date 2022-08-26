@@ -6564,7 +6564,7 @@ async function run() {
         let version = core.getInput('version') || 'latest';
         const manifest = await tc.getManifestFromRepo('conventional-actions', 'go-kart', process.env['GITHUB_TOKEN'] || '', 'main');
         core.debug(`manifest = ${JSON.stringify(manifest)}`);
-        const rel = await tc.findFromManifest(version, true, manifest, os_1.default.arch());
+        const rel = await tc.findFromManifest(version === 'latest' ? '*' : version, true, manifest, os_1.default.arch());
         core.debug(`rel = ${JSON.stringify(rel)}`);
         if (rel && rel.files.length > 0) {
             version = rel.version;
