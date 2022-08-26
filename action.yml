@@ -19,6 +19,7 @@ outputs:
     description: 'output file path'
 runs:
   using: 'node16'
+  pre: 'dist/setup/index.js'
   main: 'dist/main/index.js'
 branding:
   icon: shopping-cart

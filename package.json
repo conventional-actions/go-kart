@@ -5,7 +5,7 @@
   "description": "go-kart GitHub action",
   "main": "dist/main/index.js",
   "scripts": {
-    "build": "ncc build --source-map --license licenses.txt -o dist/main src/main.ts",
+    "build": "ncc build --source-map --license licenses.txt -o dist/setup src/setup.ts && ncc build --source-map --license licenses.txt -o dist/main src/main.ts",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "eslint src/**/*.ts",
@@ -30,6 +30,8 @@
   "dependencies": {
     "@actions/core": "^1.9.1",
     "@actions/exec": "^1.1.1",
+    "@actions/github": "^5.0.3",
+    "@actions/tool-cache": "^2.0.1",
     "glob": "^8.0.3"
   },
   "devDependencies": {

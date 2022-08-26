@@ -1,0 +1,59 @@
+[
+  {
+    "version": "0.4.0",
+    "stable": true,
+    "release_url": "https://github.com/praetorian-inc/gokart/releases/tag/v0.4.0",
+    "files": [
+      {
+        "filename": "gokart_0.4.0_darwin_macOS_x86_64.tar.gz",
+        "arch": "x64",
+        "platform": "darwin",
+        "download_url": "https://github.com/praetorian-inc/gokart/releases/download/v0.4.0/gokart_0.4.0_darwin_macOS_x86_64.tar.gz"
+      },
+      {
+        "filename": "gokart_0.4.0_linux_x86_64.tar.gz",
+        "arch": "x64",
+        "platform": "linux",
+        "download_url": "https://github.com/praetorian-inc/gokart/releases/download/v0.4.0/gokart_0.4.0_linux_x86_64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "0.3.0",
+    "stable": true,
+    "release_url": "https://github.com/praetorian-inc/gokart/releases/tag/v0.3.0",
+    "files": [
+      {
+        "filename": "gokart_0.3.0_darwin_macOS_x86_64.tar.gz",
+        "arch": "x64",
+        "platform": "darwin",
+        "download_url": "https://github.com/praetorian-inc/gokart/releases/download/v0.3.0/gokart_0.3.0_darwin_macOS_x86_64.tar.gz"
+      },
+      {
+        "filename": "gokart_0.3.0_linux_x86_64.tar.gz",
+        "arch": "x64",
+        "platform": "linux",
+        "download_url": "https://github.com/praetorian-inc/gokart/releases/download/v0.3.0/gokart_0.3.0_linux_x86_64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "0.2.0",
+    "stable": true,
+    "release_url": "https://github.com/praetorian-inc/gokart/releases/tag/v0.2.0",
+    "files": [
+      {
+        "filename": "gokart_0.2.0_darwin_macOS_x86_64.tar.gz",
+        "arch": "x64",
+        "platform": "darwin",
+        "download_url": "https://github.com/praetorian-inc/gokart/releases/download/v0.2.0/gokart_0.2.0_darwin_macOS_x86_64.tar.gz"
+      },
+      {
+        "filename": "gokart_0.2.0_linux_x86_64.tar.gz",
+        "arch": "x64",
+        "platform": "linux",
+        "download_url": "https://github.com/praetorian-inc/gokart/releases/download/v0.2.0/gokart_0.2.0_linux_x86_64.tar.gz"
+      }
+    ]
+  }
+]

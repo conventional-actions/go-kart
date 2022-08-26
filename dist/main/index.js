@@ -7298,13 +7298,10 @@ const exec = __importStar(__nccwpck_require__(1514));
 const utils_1 = __nccwpck_require__(1314);
 async function run() {
     try {
-        const version = core.getInput('version') || 'latest';
         const outputPath = core.getInput('output_path') || 'gokart.sarif';
         const packages = (0, utils_1.parseInputFiles)(core.getInput('package') || './...');
         for (const pkg of packages) {
-            await exec.exec('go', [
-                'run',
-                `github.com/praetorian-inc/gokart@${version}`,
+            await exec.exec('gokart', [
                 'scan',
                 '-x',
                 '-s',
