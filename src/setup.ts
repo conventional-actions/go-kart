@@ -8,7 +8,9 @@ async function run(): Promise<void> {
 
     const manifest = await tc.getManifestFromRepo(
       'conventional-actions',
-      'go-kart'
+      'go-kart',
+      process.env['GITHUB_TOKEN'] || '',
+      'main'
     )
     core.debug(`manifest = ${JSON.stringify(manifest)}`)
 
