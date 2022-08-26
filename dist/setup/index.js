@@ -6563,7 +6563,9 @@ async function run() {
     try {
         let version = core.getInput('version') || 'latest';
         const manifest = await tc.getManifestFromRepo('conventional-actions', 'go-kart');
+        core.debug(`manifest = ${JSON.stringify(manifest)}`);
         const rel = await tc.findFromManifest(version, true, manifest, os_1.default.arch());
+        core.debug(`rel = ${JSON.stringify(rel)}`);
         if (rel && rel.files.length > 0) {
             version = rel.version;
             const downloadUrl = rel.files[0].download_url;
