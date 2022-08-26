@@ -7302,6 +7302,7 @@ async function run() {
         const packages = (0, utils_1.parseInputFiles)(core.getInput('package') || './...');
         for (const pkg of packages) {
             await exec.exec('gokart', ['scan', '-x', '-s', '-o', outputPath, pkg]);
+            core.setOutput('output_path', outputPath);
         }
     }
     catch (error) {

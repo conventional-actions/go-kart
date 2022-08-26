@@ -9,6 +9,7 @@ async function run(): Promise<void> {
 
     for (const pkg of packages) {
       await exec.exec('gokart', ['scan', '-x', '-s', '-o', outputPath, pkg])
+      core.setOutput('output_path', outputPath)
     }
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
