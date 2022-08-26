@@ -14,7 +14,12 @@ async function run(): Promise<void> {
     )
     core.debug(`manifest = ${JSON.stringify(manifest)}`)
 
-    const rel = await tc.findFromManifest(version, true, manifest, os.arch())
+    const rel = await tc.findFromManifest(
+        version === 'latest' ? '*' : version,
+        true,
+        manifest,
+        os.arch()
+    )
     core.debug(`rel = ${JSON.stringify(rel)}`)
 
     if (rel && rel.files.length > 0) {
