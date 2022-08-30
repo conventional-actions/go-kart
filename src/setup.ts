@@ -1,45 +1,17 @@
 import * as core from '@actions/core'
-import * as tc from '@actions/tool-cache'
-import os from 'os'
+import {downloadToolFromManifest} from '@conventional-actions/toolkit'
+import {getConfig} from './config'
 
 async function run(): Promise<void> {
   try {
-    let version = core.getInput('version') || 'latest'
+    const config = await getConfig()
 
-    const manifest = await tc.getManifestFromRepo(
-      'conventional-actions',
+    await downloadToolFromManifest(
       'go-kart',
-      process.env['GITHUB_TOKEN'] || '',
-      'main'
+      'gokart',
+      config.version,
+      config.github_token
     )
-    core.debug(`manifest = ${JSON.stringify(manifest)}`)
-
-    const rel = await tc.findFromManifest(
-      version === 'latest' ? '*' : version,
-      true,
-      manifest,
-      os.arch()
-    )
-    core.debug(`rel = ${JSON.stringify(rel)}`)
-
-    if (rel && rel.files.length > 0) {
-      version = rel.version
-      const downloadUrl = rel.files[0].download_url
-      core.debug(`downloading from ${downloadUrl}`)
-
-      const downloadPath = await tc.downloadTool(downloadUrl)
-      core.debug(`downloaded to ${downloadPath}`)
-
-      const extPath = await tc.extractTar(downloadPath)
-      core.debug(`extracted to ${extPath}`)
-
-      const toolPath = await tc.cacheDir(extPath, 'gokart', version, os.arch())
-      core.debug(`tool path ${toolPath}`)
-
-      core.addPath(toolPath)
-    } else {
-      throw new Error(`could not find gokart ${version} for ${os.arch()}`)
-    }
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }

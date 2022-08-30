@@ -10,6 +10,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: npm install
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+          scope: conventional-actions
+          registry-url: https://npm.pkg.github.com/
+          always-auth: true
+      - run: npm ci
       - run: npm run all
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+permissions:
+  packages: read
