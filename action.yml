@@ -18,7 +18,7 @@ outputs:
   output_path:
     description: 'output file path'
 runs:
-  using: 'node16'
+  using: 'node20'
   pre: 'dist/setup/index.js'
   main: 'dist/main/index.js'
 branding:
