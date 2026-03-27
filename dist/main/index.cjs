@@ -22078,9 +22078,9 @@ var require_balanced_match = __commonJS({
   }
 });
 
-// node_modules/glob/node_modules/brace-expansion/index.js
+// node_modules/brace-expansion/index.js
 var require_brace_expansion = __commonJS({
-  "node_modules/glob/node_modules/brace-expansion/index.js"(exports2, module2) {
+  "node_modules/brace-expansion/index.js"(exports2, module2) {
     var balanced = require_balanced_match();
     module2.exports = expandTop;
     var escSlash = "\0SLASH" + Math.random() + "\0";
