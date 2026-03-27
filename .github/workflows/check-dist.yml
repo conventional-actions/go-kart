@@ -1,5 +1,9 @@
 name: Check dist
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches:
@@ -14,11 +18,12 @@ on:
 jobs:
   check-dist:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Set Node
-        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: 24
           cache: 'npm'
@@ -27,8 +32,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Rebuild the dist/ directory
-        run: |
-          npm run all
+        run: npm run build
       - name: Compare the expected and actual dist/ directories
         run: |
           if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then
@@ -49,4 +53,5 @@ env:
   NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 permissions:
+  contents: read
   packages: read

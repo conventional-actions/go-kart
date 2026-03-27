@@ -18,9 +18,9 @@ outputs:
   output_path:
     description: 'output file path'
 runs:
-  using: 'node20'
-  pre: 'dist/setup/index.js'
-  main: 'dist/main/index.js'
+  using: 'node24'
+  pre: 'dist/setup/index.cjs'
+  main: 'dist/main/index.cjs'
 branding:
   icon: shopping-cart
   color: purple
